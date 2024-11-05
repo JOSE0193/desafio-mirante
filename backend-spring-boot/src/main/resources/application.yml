@@ -1,0 +1,35 @@
+
+# -----------------------------------------------------
+# Configuracao da porta e contexto da aplica��o  
+# -----------------------------------------------------  
+server:
+  port: 8080
+  servlet.context-path: /mirante
+
+# --------------------------------------------------------
+# configuracao do banco de dados
+# --------------------------------------------------------
+spring:
+  sql.init.mode: always
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cidade-db?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: postgres
+    password: jk150115
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+# --------------------------------------------------------
+# configuracoes da Swagger
+# --------------------------------------------------------
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+  api-docs:
+    path: /api-docs

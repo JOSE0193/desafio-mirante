@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest  
+    container_name: mirante-city
+    environment:
+      POSTGRES_USER: postgres       
+      POSTGRES_PASSWORD: jk150115 
+      POSTGRES_DB: cidade-db
+    ports:
+      - "5432:5432"               
+    volumes:
+      - cidade-db-data:/var/lib/postgresql/data
+
+volumes:
+  cidade-db-data:
